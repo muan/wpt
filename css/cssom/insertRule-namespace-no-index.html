@@ -32,9 +32,14 @@
 
     test(function() {
         assert_equals(sheet.cssRules.length, 3);
-        sheet.insertRule("@import url(\"support/a-green.css\");");
-        assert_equals(sheet.cssRules.length, 4);
-    }, "insertRule with namespace and omitted index argument should insert import");
+        try {
+            sheet.insertRule("@import url(\"support/a-green.css\");");
+            assert_unreached("insertRule with @import should throw");
+        } catch (e) {
+            assert_true(true,"insertRule with @import should throw");
+        }
+        assert_equals(sheet.cssRules.length, 3);
+    }, "insertRule of @import with namespace and omitted index argument should throw");
 </script>
 </body>
 </html>
