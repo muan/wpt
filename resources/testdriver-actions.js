@@ -324,7 +324,7 @@
         if (this.actions.has(i)) {
           actions.push(this.actions.get(i));
         } else {
-          actions.push({"type": "pause"});
+          actions.push({"type": "pause", duration: 0});
         }
       }
       return data;
@@ -375,7 +375,7 @@
         if (this.actions.has(i)) {
           actions.push(this.actions.get(i));
         } else {
-          actions.push({"type": "pause"});
+          actions.push({"type": "pause", duration: 0});
         }
       }
       return data;
